@@ -392,12 +392,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 114128864720407834, guid: 7d47c2438e9e00e489e5f611bc4bb1c3,
+    - target: {fileID: 144076127213897078, guid: 7d47c2438e9e00e489e5f611bc4bb1c3,
         type: 2}
-      propertyPath: bodyControllerPrefab
-      value: 
-      objectReference: {fileID: 114387231033117706, guid: c0356cebe7f22e84db2785fecbc0ebad,
-        type: 2}
+      propertyPath: m_ConnectedAnchor.z
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7d47c2438e9e00e489e5f611bc4bb1c3, type: 2}
   m_IsPrefabParent: 0

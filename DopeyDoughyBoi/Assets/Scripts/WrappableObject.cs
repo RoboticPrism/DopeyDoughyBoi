@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class WrappableObject : MonoBehaviour {
 
+    public int segmentsAdded = 1;
     public Material material;
     public bool wrapped = false;
     List<WrapPoint> wrapPoints = new List<WrapPoint>();
@@ -32,6 +33,9 @@ public class WrappableObject : MonoBehaviour {
     void OnWrap()
     {
         GetComponent<Renderer>().material = material;
-        FindObjectOfType<HeadController>().AddBody();
+        for (int i = 0; i < segmentsAdded; i++)
+        {
+            FindObjectOfType<HeadController>().AddBody();
+        }
     }
 }
