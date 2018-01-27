@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HeadController : MonoBehaviour {
+    public enum Emotions { NEUTRAL, HAPPY, SAD, ANGRY, FAST }
+    public Emotions currentEmotion = Emotions.NEUTRAL;
+    float emotionTransitionSpeed = 0.03f;
+    Coroutine changeEmotionCoroutine;
+
     public int initialSegments = 4;
 
 
@@ -10,19 +15,28 @@ public class HeadController : MonoBehaviour {
     private int rotationScale = 3;
     private int climbScale = 150;
     Rigidbody rb;
+    Renderer renderer;
     public BodyController bodyControllerPrefab;
     List<BodyController> bodySegments = new List<BodyController>();
     ButtController buttSegment;
 
-	// Use this for initialization
-	void Start () {
+    public Material neutralMat;
+    public Material happyMat;
+    public Material sadMat;
+    public Material angryMat;
+    public Material fastMat;
+
+
+    // Use this for initialization
+    void Start () {
         rb = GetComponent<Rigidbody>();
+        renderer = GetComponent<Renderer>();
         buttSegment = FindObjectOfType<ButtController>();
         for (int i = 0; i < initialSegments; i++)
         {
             AddBody();
         }
-        
+        StartEmotionChange(Emotions.NEUTRAL);
 	}
 	
     void FixedUpdate()
@@ -39,6 +53,75 @@ public class HeadController : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    //////////////
+    // EMOTIONS //
+    //////////////
+
+    void StartEmotionChange(Emotions newEmotion)
+    {
+        currentEmotion = newEmotion;
+        if(changeEmotionCoroutine != null)
+        {
+            StopCoroutine(changeEmotionCoroutine);
+        }
+        changeEmotionCoroutine = StartCoroutine("ChangeEmotion");
+    }
+
+    IEnumerator ChangeEmotion ()
+    {
+        int counter = 120;
+        while(counter > 0)
+        {
+            UpdateMaterial();
+            counter--;
+            yield return null;
+        }
+        changeEmotionCoroutine = null;
+    }
+
+    void UpdateMaterial()
+    {
+        if(currentEmotion == Emotions.NEUTRAL)
+        {
+            LerpMaterial(neutralMat);
+        } else if (currentEmotion == Emotions.HAPPY)
+        {
+            LerpMaterial(happyMat);
+        }
+        else if (currentEmotion == Emotions.SAD)
+        {
+            LerpMaterial(sadMat);
+        }
+        else if (currentEmotion == Emotions.ANGRY)
+        {
+            LerpMaterial(angryMat);
+        }
+        else if (currentEmotion == Emotions.FAST)
+        {
+            LerpMaterial(fastMat);
+        }
+    }
+
+    void LerpMaterial(Material targetMat)
+    {
+        renderer.material.Lerp(renderer.material, targetMat, emotionTransitionSpeed);
+        foreach(BodyController body in bodySegments)
+        {
+            foreach (Renderer bRenderer in body.renderers)
+            {
+                bRenderer.material.Lerp(bRenderer.material, targetMat, emotionTransitionSpeed);
+            }
+        }
+        if (buttSegment.renderer)
+        {
+            buttSegment.renderer.material.Lerp(buttSegment.renderer.material, targetMat, emotionTransitionSpeed);
+        }
+    }
+
+    /////////////////////
+    // SEGMENT CONTROL //
+    /////////////////////
 
     private BodyController LastBodySegment()
     {
