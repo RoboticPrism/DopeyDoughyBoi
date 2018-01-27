@@ -6,15 +6,20 @@ public class WrappableObject : MonoBehaviour {
 
     public int segmentsAdded = 1;
     public Material blehMaterial;
-    private Material originalMaterial;
+    private List<Material> originalMaterials;
     public bool wrapped = false;
     List<WrapPoint> wrapPoints = new List<WrapPoint>();
 
 	// Use this for initialization
 	void Start () {
         wrapPoints = new List<WrapPoint>(GetComponentsInChildren<WrapPoint>());
-        originalMaterial = GetComponent<Renderer>().material;
-        GetComponent<Renderer>().material = blehMaterial;
+        originalMaterials = new List<Material>(GetComponent<Renderer>().materials);
+        List<Material> blehMaterials = new List<Material>();
+        for(int i = 0; i< originalMaterials.Count; i++)
+        {
+            blehMaterials.Add(blehMaterial);
+        }
+        GetComponent<Renderer>().materials = blehMaterials.ToArray();
 	}
 	
 	// Update is called once per frame
@@ -35,7 +40,7 @@ public class WrappableObject : MonoBehaviour {
 
     void OnWrap()
     {
-        GetComponent<Renderer>().material = originalMaterial;
+        GetComponent<Renderer>().materials = originalMaterials.ToArray();
         for (int i = 0; i < segmentsAdded; i++)
         {
             FindObjectOfType<HeadController>().AddBody();

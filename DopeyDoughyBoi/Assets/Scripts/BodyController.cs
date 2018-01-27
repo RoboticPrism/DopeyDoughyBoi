@@ -5,10 +5,12 @@ using UnityEngine;
 public class BodyController : MonoBehaviour {
 
     public Transform parentTransform;
+    public List<Renderer> renderers;
 
-    void Start ()
+    // Use this for initialization
+    void Start()
     {
-
+        renderers = new List<Renderer>(GetComponentsInChildren<Renderer>());
     }
 
     void FixedUpdate ()

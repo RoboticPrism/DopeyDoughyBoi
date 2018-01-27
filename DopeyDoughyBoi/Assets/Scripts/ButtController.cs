@@ -5,10 +5,11 @@ using UnityEngine;
 public class ButtController : MonoBehaviour {
 
     public bool onGround = true;
+    public Renderer renderer;
 
 	// Use this for initialization
 	void Start () {
-		
+        renderer = GetComponent<Renderer>();
 	}
 	
 	// Update is called once per frame
