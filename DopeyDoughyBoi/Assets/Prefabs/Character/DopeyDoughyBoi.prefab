@@ -216,8 +216,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   initialSegments: 5
-  bodyControllerPrefab: {fileID: 114608690871801652, guid: 00a6bc5d024ac62408c63dd73751268c,
-    type: 2}
+  bodyControllerPrefab: {fileID: 0}
 --- !u!124 &124783606993767574
 Behaviour:
   m_ObjectHideFlags: 1

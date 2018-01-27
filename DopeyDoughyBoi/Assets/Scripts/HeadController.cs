@@ -58,7 +58,9 @@ public class HeadController : MonoBehaviour {
         BodyController newBody = Instantiate(bodyControllerPrefab, this.transform.parent);
         newBody.transform.position = spawnPoint;
         newBody.transform.Translate(Vector3.back, parentSegment);
+        newBody.transform.rotation = parentSegment.rotation;
         newBody.GetComponent<CharacterJoint>().connectedBody = parentSegment.GetComponent<Rigidbody>();
+        newBody.GetComponent<CharacterJoint>().connectedAnchor = new Vector3(0, 0, 0);
         bodySegments.Add(newBody);
     }
 }
