@@ -18,7 +18,7 @@ public class HeadController : MonoBehaviour {
     private int rotationScale = 3;
     private int climbScale = 150;
     Rigidbody rb;
-    Renderer renderer;
+    List<Renderer> renderers;
     public BodyController bodyControllerPrefab;
     List<BodyController> bodySegments = new List<BodyController>();
     ButtController buttSegment;
@@ -33,7 +33,7 @@ public class HeadController : MonoBehaviour {
     // Use this for initialization
     void Start () {
         rb = GetComponent<Rigidbody>();
-        renderer = GetComponent<Renderer>();
+        renderers = new List<Renderer>(GetComponentsInChildren<Renderer>());
         buttSegment = FindObjectOfType<ButtController>();
         musicController = FindObjectOfType<MusicController>();
         for (int i = 0; i < initialSegments; i++)
@@ -104,8 +104,11 @@ public class HeadController : MonoBehaviour {
 
     void LerpMaterial(Material targetMat)
     {
-        renderer.material.Lerp(renderer.material, targetMat, emotionTransitionSpeed);
-        foreach(BodyController body in bodySegments)
+        foreach (Renderer hRenderer in renderers)
+        {
+            hRenderer.material.Lerp(hRenderer.material, targetMat, emotionTransitionSpeed);
+        }
+        foreach (BodyController body in bodySegments)
         {
             foreach (Renderer bRenderer in body.renderers)
             {
