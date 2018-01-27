@@ -113,9 +113,12 @@ public class HeadController : MonoBehaviour {
                 bRenderer.material.Lerp(bRenderer.material, targetMat, emotionTransitionSpeed);
             }
         }
-        if (buttSegment.renderer)
+        if (buttSegment.renderers != null)
         {
-            buttSegment.renderer.material.Lerp(buttSegment.renderer.material, targetMat, emotionTransitionSpeed);
+            foreach (Renderer bRenderer in buttSegment.renderers)
+            {
+                bRenderer.material.Lerp(bRenderer.material, targetMat, emotionTransitionSpeed);
+            }
         }
     }
 
