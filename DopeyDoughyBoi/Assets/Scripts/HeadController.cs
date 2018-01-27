@@ -8,14 +8,17 @@ public class HeadController : MonoBehaviour {
 
     private int speedScale = 80;
     private int rotationScale = 3;
+    private int climbScale = 150;
     Rigidbody rb;
     public BodyController bodyControllerPrefab;
     List<BodyController> bodySegments = new List<BodyController>();
+    ButtController buttSegment;
 
 	// Use this for initialization
 	void Start () {
         rb = GetComponent<Rigidbody>();
-        for(int i = 0; i < initialSegments; i++)
+        buttSegment = FindObjectOfType<ButtController>();
+        for (int i = 0; i < initialSegments; i++)
         {
             AddBody();
         }
@@ -26,6 +29,10 @@ public class HeadController : MonoBehaviour {
     {
         rb.AddRelativeForce(new Vector3(0, 0, Input.GetAxis("Vertical") * speedScale));
         rb.AddRelativeTorque(new Vector3(0, Input.GetAxis("Horizontal") * rotationScale, 0));
+        if (buttSegment.onGround)
+        {
+            rb.AddForce(new Vector3(0, Input.GetAxis("Jump") * climbScale, 0));
+        }
     }
 
 	// Update is called once per frame
@@ -56,11 +63,21 @@ public class HeadController : MonoBehaviour {
         }
         Vector3 spawnPoint = parentSegment.position;
         BodyController newBody = Instantiate(bodyControllerPrefab, this.transform.parent);
+        newBody.parentTransform = parentSegment.transform;
+
+        // Link segment to segment in front
         newBody.transform.position = spawnPoint;
         newBody.transform.Translate(Vector3.back, parentSegment);
         newBody.transform.rotation = parentSegment.rotation;
         newBody.GetComponent<CharacterJoint>().connectedBody = parentSegment.GetComponent<Rigidbody>();
         newBody.GetComponent<CharacterJoint>().connectedAnchor = new Vector3(0, 0, 0);
         bodySegments.Add(newBody);
+
+        // move the butt further back
+        buttSegment.transform.position = newBody.transform.position;
+        buttSegment.transform.Translate(Vector3.back, newBody.transform);
+        buttSegment.transform.rotation = newBody.transform.rotation;
+        buttSegment.GetComponent<CharacterJoint>().connectedBody = newBody.transform.GetComponent<Rigidbody>();
+        buttSegment.GetComponent<CharacterJoint>().connectedAnchor = new Vector3(0, 0, 0);
     }
 }

@@ -18,7 +18,9 @@ public class WrapPoint : MonoBehaviour {
 
     void OnTriggerStay(Collider col)
     {
-        if(col.GetComponent<HeadController>() || col.GetComponent<BodyController>())
+        if(col.GetComponent<HeadController>() || 
+           col.GetComponent<BodyController>() ||
+           col.GetComponent<ButtController>())
         {
             wrapped = true;
         }
@@ -26,7 +28,9 @@ public class WrapPoint : MonoBehaviour {
 
     void OnTriggerExit(Collider col)
     {
-        if (col.GetComponent<HeadController>() || col.GetComponent<BodyController>())
+        if (col.GetComponent<HeadController>() ||
+            col.GetComponent<BodyController>() ||
+            col.GetComponent<ButtController>())
         {
             wrapped = false;
         }
