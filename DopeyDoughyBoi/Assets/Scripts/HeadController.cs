@@ -6,10 +6,13 @@ public class HeadController : MonoBehaviour {
     public enum Emotions { NEUTRAL, HAPPY, SAD, ANGRY, FAST }
     public Emotions currentEmotion = Emotions.NEUTRAL;
     float emotionTransitionSpeed = 0.03f;
-    Coroutine changeEmotionCoroutine;
 
     public int initialSegments = 4;
 
+    //music
+    public int musicThreshold1 = 20;
+    public int musicThreshold2 = 40;
+    MusicController musicController;
 
     private int speedScale = 80;
     private int rotationScale = 3;
@@ -32,6 +35,7 @@ public class HeadController : MonoBehaviour {
         rb = GetComponent<Rigidbody>();
         renderer = GetComponent<Renderer>();
         buttSegment = FindObjectOfType<ButtController>();
+        musicController = FindObjectOfType<MusicController>();
         for (int i = 0; i < initialSegments; i++)
         {
             AddBody();
@@ -41,7 +45,7 @@ public class HeadController : MonoBehaviour {
 	
     void FixedUpdate()
     {
-        rb.AddRelativeForce(new Vector3(0, 0, Input.GetAxis("Vertical") * speedScale));
+        rb.AddRelativeForce(new Vector3(0, 0, Input.GetAxis("Vertical") * speedScale + bodySegments.Count/5));
         rb.AddRelativeTorque(new Vector3(0, Input.GetAxis("Horizontal") * rotationScale, 0));
         if (buttSegment.onGround)
         {
@@ -60,12 +64,8 @@ public class HeadController : MonoBehaviour {
 
     void StartEmotionChange(Emotions newEmotion)
     {
-        currentEmotion = newEmotion;
-        if(changeEmotionCoroutine != null)
-        {
-            StopCoroutine(changeEmotionCoroutine);
-        }
-        changeEmotionCoroutine = StartCoroutine("ChangeEmotion");
+        StopCoroutine("ChangeEmotion");
+        StartCoroutine("ChangeEmotion");
     }
 
     IEnumerator ChangeEmotion ()
@@ -77,7 +77,6 @@ public class HeadController : MonoBehaviour {
             counter--;
             yield return null;
         }
-        changeEmotionCoroutine = null;
     }
 
     void UpdateMaterial()
@@ -165,5 +164,14 @@ public class HeadController : MonoBehaviour {
         buttSegment.transform.rotation = newBody.transform.rotation;
         buttSegment.GetComponent<CharacterJoint>().connectedBody = newBody.transform.GetComponent<Rigidbody>();
         buttSegment.GetComponent<CharacterJoint>().connectedAnchor = new Vector3(0, 0, 0);
+
+        if (bodySegments.Count == musicThreshold1)
+        {
+            musicController.ChooseMusic(1);
+        } else if (bodySegments.Count == musicThreshold2)
+        {
+            musicController.ChooseMusic(2);
+        }
+        StartEmotionChange(currentEmotion);
     }
 }
