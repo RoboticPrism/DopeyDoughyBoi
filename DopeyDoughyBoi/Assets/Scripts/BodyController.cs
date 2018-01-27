@@ -13,6 +13,8 @@ public class BodyController : MonoBehaviour {
 
     void FixedUpdate ()
     {
-
+        transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles.x,
+                                              transform.rotation.eulerAngles.y,
+                                              0);
     }
 }

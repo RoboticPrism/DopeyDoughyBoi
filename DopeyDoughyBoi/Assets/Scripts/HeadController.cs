@@ -8,6 +8,7 @@ public class HeadController : MonoBehaviour {
 
     private int speedScale = 80;
     private int rotationScale = 3;
+    private int climbScale = 150;
     Rigidbody rb;
     public BodyController bodyControllerPrefab;
     List<BodyController> bodySegments = new List<BodyController>();
@@ -28,6 +29,10 @@ public class HeadController : MonoBehaviour {
     {
         rb.AddRelativeForce(new Vector3(0, 0, Input.GetAxis("Vertical") * speedScale));
         rb.AddRelativeTorque(new Vector3(0, Input.GetAxis("Horizontal") * rotationScale, 0));
+        if (buttSegment.onGround)
+        {
+            rb.AddForce(new Vector3(0, Input.GetAxis("Jump") * climbScale, 0));
+        }
     }
 
 	// Update is called once per frame
