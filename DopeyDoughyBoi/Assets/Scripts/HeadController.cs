@@ -64,6 +64,9 @@ public class HeadController : MonoBehaviour {
 
     void StartEmotionChange(Emotions newEmotion)
     {
+    	//Setting the new emotion
+    	currentEmotion = newEmotion;
+
         StopCoroutine("ChangeEmotion");
         StartCoroutine("ChangeEmotion");
     }
@@ -177,4 +180,37 @@ public class HeadController : MonoBehaviour {
         }
         StartEmotionChange(currentEmotion);
     }
+
+	//Collision detection
+    void OnCollisionEnter (Collision col)
+	{
+		if (col.gameObject.GetComponent<WrappableObject> () != null) {
+			Debug.Log("Colliding");
+			Hormonal ();
+		}
+	}
+
+    // Changing the emotion state of dough boi if they hit a wrappable object
+    public void Hormonal ()
+	{
+		//Starts the change to angry after hitting
+		StartEmotionChange(Emotions.ANGRY);
+		Debug.Log(currentEmotion);
+
+		StartCoroutine("ReturnNeutral");
+
+
+	}
+
+	//For returning the emotional state to neutral
+	IEnumerator ReturnNeutral ()
+    {
+    	Debug.Log("Going Neutral");
+    	yield return new WaitForSeconds(3);
+
+		//Starts the change back to neutral so not permanently ANGERY
+		StartEmotionChange(Emotions.NEUTRAL);
+		Debug.Log(currentEmotion);
+    }
+
 }
