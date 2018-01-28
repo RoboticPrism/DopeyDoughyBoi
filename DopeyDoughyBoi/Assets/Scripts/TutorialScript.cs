@@ -22,7 +22,7 @@ public class TutorialScript : MonoBehaviour {
     // Use this for initialization
     void Start () {
         headController = FindObjectOfType<HeadController>();
-        tutorialText.color = new Color(0, 0, 0, 0);
+        tutorialText.color = new Color(1, 1, 1, 0);
         tutorialText.text = moveText;
         StartCoroutine(FadeInAndOut());
 	}
@@ -62,19 +62,19 @@ public class TutorialScript : MonoBehaviour {
         fadeTransition = true;
         while (a < 1)
         {
-            tutorialText.color = new Color(0, 0, 0, a);
+            tutorialText.color = new Color(1, 1, 1, a);
             a += fadeSpeed * Time.deltaTime;
             yield return null;
         }
-        tutorialText.color = new Color(0, 0, 0, 1);
+        tutorialText.color = new Color(1, 1, 1, 1);
         yield return new WaitForSeconds(2);
         while (a > 0)
         {
-            tutorialText.color = new Color(0, 0, 0, a);
+            tutorialText.color = new Color(1, 1, 1, a);
             a -= fadeSpeed * Time.deltaTime;
             yield return null;
         }
-        tutorialText.color = new Color(0, 0, 0, 0);
+        tutorialText.color = new Color(1, 1, 1, 0);
         yield return new WaitForSeconds(1);
         fadeTransition = false;
     }
