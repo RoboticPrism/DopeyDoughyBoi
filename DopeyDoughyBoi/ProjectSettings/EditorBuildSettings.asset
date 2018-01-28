@@ -6,8 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/LiveScenes/MainMenu.unity
+    guid: 00cef3a51de56f241970e448453b010f
+  - enabled: 1
     path: Assets/Scenes/LiveScenes/Room.unity
     guid: 12620d86b7ff64f4d97a6e156bfea451
   - enabled: 1
     path: Assets/Scenes/LiveScenes/City.unity
     guid: 806f1cad394e8654fba4b350d857fa0b
+  - enabled: 1
+    path: Assets/Scenes/LiveScenes/CreditScreen.unity
+    guid: d3c432d5cadf2ac46b7b42ccbbd8b230

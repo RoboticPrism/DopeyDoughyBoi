@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657844, g: 0.49641222, b: 0.57481694, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
@@ -3882,7 +3882,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e06a2a114d22369418db3918adb0a376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  segmentsAdded: 5
+  segmentsAdded: 10
   blehMaterial: {fileID: 2100000, guid: c7822657306bc1f4fbbef5c0ac3a3517, type: 2}
   wrapped: 0
   dopeyHead: {fileID: 0}
@@ -9016,7 +9016,7 @@ Prefab:
     - target: {fileID: 114714763437582274, guid: 96a9e3e99c686fa45a6496ace2b1ce5f,
         type: 2}
       propertyPath: segmentsAdded
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 96a9e3e99c686fa45a6496ace2b1ce5f, type: 2}
@@ -11736,7 +11736,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e06a2a114d22369418db3918adb0a376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  segmentsAdded: 5
+  segmentsAdded: 10
   blehMaterial: {fileID: 2100000, guid: c7822657306bc1f4fbbef5c0ac3a3517, type: 2}
   wrapped: 0
   dopeyHead: {fileID: 0}
@@ -15921,7 +15921,7 @@ Prefab:
     - target: {fileID: 114868185345376456, guid: d46eff1d1d14e924faf89a5fbf8490a4,
         type: 2}
       propertyPath: segmentsAdded
-      value: 5
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d46eff1d1d14e924faf89a5fbf8490a4, type: 2}
@@ -18716,6 +18716,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 114476761284887592, guid: b0f315937c6d14481a8f05e5b4b99679,
+        type: 2}
+      propertyPath: segmentsAdded
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b0f315937c6d14481a8f05e5b4b99679, type: 2}
   m_IsPrefabParent: 0
@@ -18782,7 +18787,7 @@ Prefab:
     - target: {fileID: 114185325296364546, guid: 6b404155776754a0eaf41c39063c94c1,
         type: 2}
       propertyPath: segmentsAdded
-      value: 3
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 4514715690825454, guid: 6b404155776754a0eaf41c39063c94c1, type: 2}
       propertyPath: m_LocalPosition.y
@@ -24944,7 +24949,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e06a2a114d22369418db3918adb0a376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  segmentsAdded: 1
+  segmentsAdded: 2
   blehMaterial: {fileID: 2100000, guid: c7822657306bc1f4fbbef5c0ac3a3517, type: 2}
   wrapped: 0
   dopeyHead: {fileID: 0}
@@ -26289,6 +26294,11 @@ Prefab:
     - target: {fileID: 4095082972980098, guid: 0d99a591429f0ef4ebc3b5b54a80a979, type: 2}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 114876679289906192, guid: 0d99a591429f0ef4ebc3b5b54a80a979,
+        type: 2}
+      propertyPath: segmentsAdded
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0d99a591429f0ef4ebc3b5b54a80a979, type: 2}
@@ -28526,6 +28536,11 @@ Prefab:
       propertyPath: m_LocalScale.z
       value: 1000.001
       objectReference: {fileID: 0}
+    - target: {fileID: 114904485729046516, guid: d965f67029fbd064c9a69fd3a6304844,
+        type: 2}
+      propertyPath: segmentsAdded
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d965f67029fbd064c9a69fd3a6304844, type: 2}
   m_IsPrefabParent: 0
@@ -29054,7 +29069,7 @@ Prefab:
     - target: {fileID: 114539286803223186, guid: b3e8dfcf96d26f547b2e24e3970037ad,
         type: 2}
       propertyPath: segmentsAdded
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b3e8dfcf96d26f547b2e24e3970037ad, type: 2}
