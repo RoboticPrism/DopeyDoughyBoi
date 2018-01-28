@@ -12732,7 +12732,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e7a62d9fb901b9443a5c00631c2e25f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  winLimit: 80
+  winLimit: 120
   nextScene: Credits
 --- !u!4 &1412403394
 Transform:
