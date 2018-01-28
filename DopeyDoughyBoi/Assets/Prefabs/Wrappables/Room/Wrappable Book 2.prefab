@@ -308,6 +308,8 @@ MonoBehaviour:
   segmentsAdded: 1
   blehMaterial: {fileID: 2100000, guid: c7822657306bc1f4fbbef5c0ac3a3517, type: 2}
   wrapped: 0
+  dopeyHead: {fileID: 0}
+  mood: {fileID: 0}
 --- !u!114 &114855221779261532
 MonoBehaviour:
   m_ObjectHideFlags: 1
