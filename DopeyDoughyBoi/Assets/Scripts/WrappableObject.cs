@@ -9,6 +9,10 @@ public class WrappableObject : MonoBehaviour {
     private List<Material> originalMaterials;
     public bool wrapped = false;
     List<WrapPoint> wrapPoints = new List<WrapPoint>();
+    public HeadController dopeyHead;
+
+    //Mood controller
+    public MoodController mood;
 
 	// Use this for initialization
 	void Start () {
@@ -20,6 +24,13 @@ public class WrappableObject : MonoBehaviour {
             blehMaterials.Add(blehMaterial);
         }
         GetComponent<Renderer>().materials = blehMaterials.ToArray();
+
+		//Assigning dopey head
+        dopeyHead = GameObject.Find("HeadSegment").GetComponent<HeadController>();
+
+        //Assigning mood controller
+        mood = GameObject.Find("AngryTrigger").GetComponent<MoodController>();
+
 	}
 	
 	// Update is called once per frame
@@ -45,5 +56,12 @@ public class WrappableObject : MonoBehaviour {
         {
             FindObjectOfType<HeadController>().AddBody();
         }
+
+		//Changing boi to happy whenever he wraps
+        dopeyHead.StartEmotionChange(HeadController.Emotions.HAPPY);
+        Debug.Log(dopeyHead.currentEmotion);
+
+        //Going back to neutral
+        mood.StartCoroutine("ReturnNeutral");
     }
 }

@@ -14,8 +14,8 @@ public class HeadController : MonoBehaviour {
     public int musicThreshold2 = 40;
     MusicController musicController;
 
-    private int speedScale = 80;
-    private int rotationScale = 3;
+    private int speedScale = 120;
+    private int rotationScale = 5;
     private int climbScale = 150;
     Rigidbody rb;
     List<Renderer> renderers;
@@ -62,7 +62,7 @@ public class HeadController : MonoBehaviour {
     // EMOTIONS //
     //////////////
 
-    void StartEmotionChange(Emotions newEmotion)
+    public void StartEmotionChange(Emotions newEmotion)
     {
     	//Setting the new emotion
     	currentEmotion = newEmotion;
@@ -143,7 +143,7 @@ public class HeadController : MonoBehaviour {
     }
 
     public void AddBody()
-    {
+    {    	
         Transform parentSegment;
         if (bodySegments.Count > 0)
         {
@@ -179,38 +179,6 @@ public class HeadController : MonoBehaviour {
             musicController.ChooseMusic(2);
         }
         StartEmotionChange(currentEmotion);
-    }
-
-	//Collision detection
-    void OnCollisionEnter (Collision col)
-	{
-		if (col.gameObject.GetComponent<WrappableObject> () != null) {
-			Debug.Log("Colliding");
-			Hormonal ();
-		}
-	}
-
-    // Changing the emotion state of dough boi if they hit a wrappable object
-    public void Hormonal ()
-	{
-		//Starts the change to angry after hitting
-		StartEmotionChange(Emotions.ANGRY);
-		Debug.Log(currentEmotion);
-
-		StartCoroutine("ReturnNeutral");
-
-
-	}
-
-	//For returning the emotional state to neutral
-	IEnumerator ReturnNeutral ()
-    {
-    	Debug.Log("Going Neutral");
-    	yield return new WaitForSeconds(3);
-
-		//Starts the change back to neutral so not permanently ANGERY
-		StartEmotionChange(Emotions.NEUTRAL);
-		Debug.Log(currentEmotion);
     }
 
 }
