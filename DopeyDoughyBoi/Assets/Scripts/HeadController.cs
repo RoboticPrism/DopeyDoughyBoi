@@ -29,6 +29,10 @@ public class HeadController : MonoBehaviour {
     public Material angryMat;
     public Material fastMat;
 
+    public Animator leftLegAnim;
+    public Animator rightLegAnim;
+    public Animator backLeftLegAnim;
+    public Animator backRightLegAnim;
 
     // Use this for initialization
     void Start () {
@@ -41,7 +45,7 @@ public class HeadController : MonoBehaviour {
             AddBody();
         }
         StartEmotionChange(Emotions.NEUTRAL);
-	}
+    }
 	
     void FixedUpdate()
     {
@@ -51,6 +55,10 @@ public class HeadController : MonoBehaviour {
         {
             rb.AddForce(new Vector3(0, Input.GetAxis("Jump") * climbScale, 0));
         }
+        leftLegAnim.SetFloat("Speed", -Input.GetAxis("Vertical"));
+        rightLegAnim.SetFloat("Speed", Input.GetAxis("Vertical"));
+        backLeftLegAnim.SetFloat("Speed", -Input.GetAxis("Vertical"));
+        backRightLegAnim.SetFloat("Speed", Input.GetAxis("Vertical"));
     }
 
 	// Update is called once per frame
