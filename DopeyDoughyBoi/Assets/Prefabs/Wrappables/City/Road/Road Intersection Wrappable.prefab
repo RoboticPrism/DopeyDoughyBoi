@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 23366430022905486}
   - component: {fileID: 95644467581812778}
   - component: {fileID: 114077015560443066}
+  - component: {fileID: 64303188348020846}
   m_Layer: 0
   m_Name: Road Intersection Wrappable
   m_TagString: Untagged
@@ -53,14 +54,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1709196731744626}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -19.61725, y: 0, z: 2.3819504}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -11.96106, y: 380.79373, z: 180.63528}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 4380790094085424}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!4 &4380790094085424
 Transform:
   m_ObjectHideFlags: 1
@@ -88,7 +89,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 99c278c772dfdde4e8398771169ac693, type: 2}
+  - {fileID: 2100000, guid: addfb5e7024b93d49b3f2cedf48be5cc, type: 2}
   - {fileID: 2100000, guid: 483eed7048bbdf94c8184fe9a276b2c3, type: 2}
   - {fileID: 2100000, guid: 02c71b656eede484693c57cc6d8dbf86, type: 2}
   - {fileID: 2100000, guid: 79dbbf8e30089d94f8597be6ffa96cd4, type: 2}
@@ -117,6 +118,20 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1709196731744626}
+  m_Mesh: {fileID: 4300000, guid: 9ece6282cbf2b43409be328c6433c4e4, type: 3}
+--- !u!64 &64303188348020846
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1709196731744626}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 9ece6282cbf2b43409be328c6433c4e4, type: 3}
 --- !u!65 &65370535920784088
 BoxCollider:
@@ -158,9 +173,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e06a2a114d22369418db3918adb0a376, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  segmentsAdded: 1
+  segmentsAdded: 0
   blehMaterial: {fileID: 2100000, guid: c7822657306bc1f4fbbef5c0ac3a3517, type: 2}
   wrapped: 0
+  dopeyHead: {fileID: 0}
+  mood: {fileID: 0}
 --- !u!114 &114688417551596876
 MonoBehaviour:
   m_ObjectHideFlags: 1

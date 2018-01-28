@@ -57,6 +57,7 @@ GameObject:
   - component: {fileID: 23032642505749644}
   - component: {fileID: 95594899057127564}
   - component: {fileID: 114292744258524452}
+  - component: {fileID: 64735811246241244}
   m_Layer: 0
   m_Name: Street Light Wrappable
   m_TagString: Untagged
@@ -83,9 +84,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1814509341970218}
-  m_LocalRotation: {x: 0, y: 0.70710677, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0, z: 2.323}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 131.01947, y: 2.776867, z: 22.817642}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_Children:
   - {fileID: 4001955975384106}
   - {fileID: 4988235485717760}
@@ -147,6 +148,20 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1814509341970218}
   m_Mesh: {fileID: 4300000, guid: 0a4e70f10d5ae9643878997861cd8b80, type: 3}
+--- !u!64 &64735811246241244
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1814509341970218}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Convex: 0
+  m_CookingOptions: 14
+  m_SkinWidth: 0.01
+  m_Mesh: {fileID: 4300000, guid: 0a4e70f10d5ae9643878997861cd8b80, type: 3}
 --- !u!65 &65415770125593726
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -202,6 +217,8 @@ MonoBehaviour:
   segmentsAdded: 1
   blehMaterial: {fileID: 2100000, guid: c7822657306bc1f4fbbef5c0ac3a3517, type: 2}
   wrapped: 0
+  dopeyHead: {fileID: 0}
+  mood: {fileID: 0}
 --- !u!114 &114616618533068958
 MonoBehaviour:
   m_ObjectHideFlags: 1

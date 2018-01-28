@@ -29,7 +29,7 @@ public class MusicController : MonoBehaviour {
 
     IEnumerator FadeSwap(AudioSource primarySouce)
     {
-        List<AudioSource> otherSources = musicTracks;
+        List<AudioSource> otherSources = new List<AudioSource>(musicTracks);
         otherSources.Remove(primarySouce);
         while (primarySouce.volume < 1)
         {

@@ -55,10 +55,10 @@ public class HeadController : MonoBehaviour {
         {
             rb.AddForce(new Vector3(0, Input.GetAxis("Jump") * climbScale, 0));
         }
-        leftLegAnim.SetFloat("Speed", -Input.GetAxis("Vertical"));
-        rightLegAnim.SetFloat("Speed", Input.GetAxis("Vertical"));
-        backLeftLegAnim.SetFloat("Speed", -Input.GetAxis("Vertical"));
-        backRightLegAnim.SetFloat("Speed", Input.GetAxis("Vertical"));
+        leftLegAnim.SetFloat("Speed", -Input.GetAxis("Vertical") * 2);
+        rightLegAnim.SetFloat("Speed", Input.GetAxis("Vertical") * 2);
+        backLeftLegAnim.SetFloat("Speed", -Input.GetAxis("Vertical") * 2);
+        backRightLegAnim.SetFloat("Speed", Input.GetAxis("Vertical") * 2);
     }
 
 	// Update is called once per frame

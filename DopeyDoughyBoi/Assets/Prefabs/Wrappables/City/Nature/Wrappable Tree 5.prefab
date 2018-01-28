@@ -90,8 +90,8 @@ GameObject:
   - component: {fileID: 33603626849074378}
   - component: {fileID: 23489564501667182}
   - component: {fileID: 95221438836578348}
-  - component: {fileID: 64141284552219500}
   - component: {fileID: 114599207329821778}
+  - component: {fileID: 64618451853081946}
   m_Layer: 0
   m_Name: Wrappable Tree 5
   m_TagString: Untagged
@@ -145,7 +145,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1838861463308230}
   m_LocalRotation: {x: 0.000000015970858, y: 0.6996111, z: -0.00000001563751, w: 0.7145238}
-  m_LocalPosition: {x: -12.711525, y: 0.035295952, z: -14.575439}
+  m_LocalPosition: {x: 208.94421, y: 242.84998, z: -324.28625}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4696377783331600}
@@ -210,7 +210,7 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1838861463308230}
   m_Mesh: {fileID: 4300000, guid: 0001ef2c9558aba49a7eb3ef1ad3b64d, type: 3}
---- !u!64 &64141284552219500
+--- !u!64 &64618451853081946
 MeshCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -220,7 +220,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 0001ef2c9558aba49a7eb3ef1ad3b64d, type: 3}
@@ -339,6 +339,8 @@ MonoBehaviour:
   segmentsAdded: 1
   blehMaterial: {fileID: 2100000, guid: c7822657306bc1f4fbbef5c0ac3a3517, type: 2}
   wrapped: 0
+  dopeyHead: {fileID: 0}
+  mood: {fileID: 0}
 --- !u!114 &114965693082370382
 MonoBehaviour:
   m_ObjectHideFlags: 1

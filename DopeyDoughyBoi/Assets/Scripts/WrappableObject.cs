@@ -59,7 +59,6 @@ public class WrappableObject : MonoBehaviour {
 
 		//Changing boi to happy whenever he wraps
         dopeyHead.StartEmotionChange(HeadController.Emotions.HAPPY);
-        Debug.Log(dopeyHead.currentEmotion);
 
         //Going back to neutral
         mood.StartCoroutine("ReturnNeutral");

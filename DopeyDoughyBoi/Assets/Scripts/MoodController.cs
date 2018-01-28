@@ -42,11 +42,9 @@ public class MoodController : MonoBehaviour {
 	//For returning the emotional state to neutral
 	IEnumerator ReturnNeutral ()
     {
-    	Debug.Log("Going Neutral");
     	yield return new WaitForSeconds(4);
 
 		//Starts the change back to neutral so not permanently ANGERY
 		dopeyHead.StartEmotionChange(HeadController.Emotions.NEUTRAL);
-		Debug.Log(dopeyHead.currentEmotion);
     }
 }
