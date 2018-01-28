@@ -20,7 +20,7 @@ public class HeadController : MonoBehaviour {
     Rigidbody rb;
     List<Renderer> renderers;
     public BodyController bodyControllerPrefab;
-    List<BodyController> bodySegments = new List<BodyController>();
+    public List<BodyController> bodySegments = new List<BodyController>();
     ButtController buttSegment;
 
     public Material neutralMat;
