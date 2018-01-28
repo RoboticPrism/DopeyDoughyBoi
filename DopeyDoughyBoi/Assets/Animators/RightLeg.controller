@@ -27,13 +27,13 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!1102 &1102425828040720050
+--- !u!1102 &1102891855366626130
 AnimatorState:
   serializedVersion: 5
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Walk
+  m_Name: RightLegWalk
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -46,7 +46,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 0c1cca4f33efae041a63e7072c45288d, type: 2}
+  m_Motion: {fileID: 7400000, guid: 96fc778a6aa97324aa55edc4473f82ed, type: 2}
   m_Tag: 
   m_SpeedParameter: Speed
   m_MirrorParameter: 
@@ -61,7 +61,7 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
-    m_State: {fileID: 1102425828040720050}
+    m_State: {fileID: 1102891855366626130}
     m_Position: {x: 408, y: 12, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
@@ -72,4 +72,4 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 420, y: -60, z: 0}
   m_ExitPosition: {x: 600, y: -60, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 1102425828040720050}
+  m_DefaultState: {fileID: 1102891855366626130}
